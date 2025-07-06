@@ -69,11 +69,10 @@
 
       /* Enhanced Responsive Tables for Mobile */
       .table-container {
-        overflow-x: auto;
+        overflow: visible; /* Remove horizontal scrolling */
         margin: 20px 0;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        -webkit-overflow-scrolling: touch;
         background: white;
       }
 
@@ -81,7 +80,7 @@
         width: 100%;
         border-collapse: collapse;
         background: white;
-        min-width: 400px;
+        table-layout: fixed; /* Fixed column widths */
       }
 
       tr,
@@ -92,25 +91,27 @@
       }
 
       th {
-        background-color: #7af019;
-        color: white;
+        /* background-color: #7af019; */
+        color: rgb(0, 0, 0);
         font-weight: bold;
         position: sticky;
         top: 0;
         z-index: 10;
-        padding: 15px 18px; /* Bigger padding */
-        font-size: 1.3rem; /* Much bigger font */
+        padding: 8px 12px; /* Reduced padding */
+        font-size: 1rem; /* Reduced font size */
       }
 
       td {
-        padding: 15px 18px; /* Bigger padding */
-        font-size: 1.2rem; /* Much bigger font */
+        padding: 8px 12px; /* Reduced padding */
+        font-size: 0.9rem; /* Reduced font size */
+        word-break: break-word; /* Allow text wrapping */
       }
 
       .tabletd {
         text-align: right;
-        padding-right: 20px;
-        font-size: 1.2rem; /* Bigger font */
+        padding-right: 12px;
+        font-size: 0.9rem; /* Reduced font size */
+        word-break: break-word; /* Allow text wrapping */
       }
 
       .coach {
@@ -164,14 +165,15 @@
 
       .sport1 {
         text-align: center;
-        background-color: #7af019;
+        /* background-color: #7af019; */
       }
 
       .sport2 {
         text-align: center;
         font-weight: bold;
-        white-space: nowrap;
-        font-size: 1.3rem; /* Much bigger */
+        white-space: normal; /* Allow text wrapping */
+        font-size: 0.9rem; /* Reduced font size */
+        word-break: break-word; /* Allow text wrapping */
       }
 
       .level1 {
@@ -230,28 +232,25 @@
           padding: 20px;
         }
 
-        /* BIGGER TABLES AND FONTS FOR MOBILE */
+        /* SMALLER TABLES AND FONTS FOR MOBILE */
         table {
-          min-width: 650px;
-          font-size: 1.3rem; /* Much bigger table font */
+          font-size: 1rem; /* Reduced table font */
         }
 
         th {
-          padding: 22px 24px; /* Much bigger padding */
-          font-size: 1.5rem; /* Much bigger header font */
+          padding: 6px 10px; /* Reduced padding */
+          font-size: 1.2rem; /* Reduced header font */
           font-weight: bold;
         }
 
         td {
-          padding: 20px 22px; /* Much bigger padding */
-          font-size: 1.3rem; /* Much bigger cell font */
-          min-width: 130px;
+          padding: 6px 10px; /* Reduced padding */
+          font-size: 1rem; /* Reduced cell font */
         }
 
         .sport2 {
-          font-size: 1.4rem; /* Much bigger sport data font */
-          padding: 20px 22px;
-          min-width: 160px;
+          font-size: 1rem; /* Reduced sport data font */
+          padding: 6px 10px;
         }
 
         .sport1-1 {
@@ -296,8 +295,8 @@
         }
 
         .tabletd {
-          font-size: 1.3rem; /* Much bigger */
-          padding-right: 22px;
+          font-size: 1rem; /* Reduced */
+          padding-right: 10px;
         }
       }
 
@@ -310,28 +309,24 @@
           padding: 15px;
         }
 
-        /* EXTRA BIG TABLES AND FONTS FOR SMALL MOBILE */
+        /* EXTRA COMPACT TABLES FOR SMALL MOBILE */
         table {
-          min-width: 600px;
-          font-size: 1.2rem; /* Bigger table font */
+          font-size: 0.9rem; /* Reduced table font */
         }
 
         th {
-          padding: 24px 20px; /* Extra big padding */
-          font-size: 1.4rem; /* Much bigger header */
-          min-width: 110px;
+          padding: 4px 8px; /* Extra compact padding */
+          font-size: 1.1rem; /* Reduced header */
         }
 
         td {
-          padding: 22px 18px; /* Extra big padding */
-          font-size: 1.2rem; /* Much bigger cell font */
-          min-width: 110px;
+          padding: 4px 8px; /* Extra compact padding */
+          font-size: 0.9rem; /* Reduced cell font */
         }
 
         .sport2 {
-          font-size: 1.3rem; /* Much bigger */
-          padding: 22px 18px;
-          min-width: 140px;
+          font-size: 0.9rem; /* Reduced */
+          padding: 4px 8px;
         }
 
         .sport1-1 {
@@ -376,8 +371,8 @@
         }
 
         .tabletd {
-          font-size: 1.2rem; /* Much bigger */
-          padding-right: 20px;
+          font-size: 0.9rem; /* Reduced */
+          padding-right: 8px;
         }
 
         h1 {
@@ -415,6 +410,22 @@
         max-height: 400px;
         object-fit: contain;
       }
+
+      /* Special styling for body measurements table */
+      .body-measurements-table th,
+      .body-measurements-table td {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+      }
+
+      /* Very small screen optimization for body measurements */
+      @media (max-width: 360px) {
+        .body-measurements-table th,
+        .body-measurements-table td {
+          font-size: 0.7rem;
+          padding: 2px 4px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -442,7 +453,7 @@
       </div>
 
       <div class="table-container" dir="rtl">
-        <table>
+        <table class="body-measurements-table">
           <thead>
             <tr>
               <th>الطول</th>
@@ -777,8 +788,1384 @@
           </video>
         </div>
 
-        <!-- Continue with more exercises... -->
-        <!-- For brevity, I'm showing the pattern. The rest would follow the same structure -->
+        <!-- التمرين الثاني -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الثاني:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الثاني: Machine Leg Extension</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/2-2.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/2-2-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثالث -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الثالث:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الثالث: Forward Lunges</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/2-3.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/2-3-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الرابع -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الرابع:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">15 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الرابع: Cable Standing Hip Abduction</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/2-4.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/2-4-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div>
+          <h3>(Hip Abductor Machine) ... البديل عن التمرين السابق</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/2-4-1-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الخامس -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الخامس:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">15 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الخامس: Dumbbell Glute Bridge</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/2-5.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- تمارين الاطالة -->
+        <div dir="rtl">
+          <h4>
+            * الاطالة أو الاسترجات بعد التمرين ترجع العضلات لوضعها الطبيعي بعد
+            التمرين
+          </h4>
+          <h4>
+            * هذا الفيديو ضروري جدا لكي تحافظي علي العضلة من الاصابات و تمزق
+            الاربطة
+          </h4>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/1-5.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+      </div>
+
+      <!-- يوم الثلاثاء -->
+      <div class="day-section">
+        <div class="taxes1" dir="rtl">
+          <h2>الثلاثاء: الجزء العلوي من الجسم + تحكم بالخصر</h2>
+          <h2 class="ltreng"><span>Tuesday: Upper Body Strength + Waist Control</span></h2>
+          <h4>* قبل التمرين تسخين كامل الجسم بالمشي 5 دقائق</h4>
+          <h4>* ثم بعد ذلك تسخين العضلات قبل التمرين ضروري</h4>
+          <h4>ضروري جدا هذا التمرين لكل رجل 10 عدات</h4>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-0.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الاول -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الاول:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الاول: Supine Lat Pull Down</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-1-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثاني -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الثاني:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الثاني: Machine Seated Cable Row</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-2.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-2-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثالث -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الثالث:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الثالث: Dumbbell Seated Overhead Press</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-3.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الرابع -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الرابع:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">30 ثانية</td>
+                </tr>
+                <tr>
+                  <td>الراحه بين التمارين</td>
+                  <td class="sport2">1 دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الرابع: Dumbbell Bench Press</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-4.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-4-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الخامس -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الخامس:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الخامس: Overhead Triceps Extension</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-5.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-5-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- تفعيل العضلات العميقة للبطن -->
+        <div class="sport" dir="rtl">
+          <div dir="ltr">
+            <h2>(TAV) تفعيل العضلات العميقة للبطن</h2>
+          </div>
+
+          <div class="level1">
+            <h3>التمرين الاول: Bird Dog</h3>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عدات</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين التمارين</td>
+                  <td class="sport2">5 ثواني</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">30 ثانية</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-6.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-6-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثاني - تفعيل العضلات العميقة للبطن -->
+        <div class="sport" dir="rtl">
+          <div dir="ltr">
+            <h2>(TAV) تفعيل العضلات العميقة للبطن</h2>
+          </div>
+
+          <div class="level1">
+            <h3>التمرين الثاني: Plank Controlled Breathing</h3>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">30 ثانية</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين التمارين</td>
+                  <td class="sport2">5 ثواني</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">30 ثانية</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-7.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-7-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- تمارين الاطالة -->
+        <div dir="rtl">
+          <h4>
+            * الاطالة أو الاسترجات بعد التمرين ترجع العضلات لوضعها الطبيعي بعد
+            التمرين
+          </h4>
+          <h4>
+            * هذا الفيديو ضروري جدا لكي تحافظي علي العضلة من الاصابات و تمزق
+            الاربطة
+          </h4>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-8.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+      </div>
+
+      <!-- تمارين الجزء السفلي -->
+      <div dir="rtl">
+        <h2>(تمارين الجزء السفلي Lower body)</h2>
+        <h4>* قبل التمرين تسخين كامل الجسم بالمشي 5 دقائق</h4>
+        <h4>* ثم بعد ذلك تسخين العضلات قبل التمرين ضروري</h4>
+        <h4>ضروري جدا هذا التمرين لكل رجل 10 عدات</h4>
+      </div>
+
+      <div class="video-container">
+        <video controls loop>
+          <source src="/media/video/1-6.mp4" type="video/mp4" />
+          المتصفح لا يدعم تشغيل الفيديو
+        </video>
+      </div>
+
+      <!-- يوم الاربعاء -->
+      <div class="day-section">
+        <div class="taxes1" dir="rtl">
+          <h2>الاربعاء: مشي 45 دقيقه</h2>
+          <h2 class="ltreng"><span>Wednesday: Walking 45 minutes</span></h2>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/4-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div dir="rtl">
+          <h2>(تمارين الجزء السفلي Lower body)</h2>
+          <h4>* قبل التمرين تسخين كامل الجسم بالمشي 5 دقائق</h4>
+          <h4>* ثم بعد ذلك تسخين العضلات قبل التمرين ضروري</h4>
+          <h4>ضروري جدا هذا التمرين لكل رجل 10 عدات</h4>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/1-6.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+      </div>
+
+      <!-- يوم الخميس -->
+      <div class="day-section">
+        <div class="taxes1" dir="rtl">
+          <h2>الخميس: نحت الأرداف + عضلات البطن العميقة</h2>
+          <h2 class="ltreng"><span>Thursday: Glutes + Core Sculpting</span></h2>
+        </div>
+
+        <!-- التمرين الاول -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الاول:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الي دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الاول: Hip Thrust machine</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-1-2.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-1-3.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div>
+          <h3>البديل عن التمرين السابق ... Hip Thrust With Dumbbell</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-1-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثاني -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الثاني:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الي دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الثاني: Cable Standing Glute Kickback</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-2.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-2-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div>
+          <h3>البديل عن التمرين السابق ... Dumbbell Glute Kickback</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-2-2.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثالث -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الثالث:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الثالث: Kettlebell Sumo Deadlift</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-3.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-3-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الرابع -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الرابع:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">20 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الرابع: Band Side Walks</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-4.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-4-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الخامس -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الخامس:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">30 ثانية</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">2 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الخامس: Weighted Glute Bridge Hold</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-5.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- تفعيل العضلات العميقة للبطن -->
+        <div class="sport" dir="rtl">
+          <div dir="ltr">
+            <h2>(TAV) تفعيل العضلات العميقة للبطن</h2>
+          </div>
+
+          <div class="level1">
+            <h3>التمرين الاول: Controlled Reverse Crunch</h3>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عدات</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-6.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثاني - تفعيل العضلات العميقة للبطن -->
+        <div class="sport" dir="rtl">
+          <div dir="ltr">
+            <h2>(TAV) تفعيل العضلات العميقة للبطن</h2>
+          </div>
+
+          <div class="level1">
+            <h3>التمرين الثاني: Crunches</h3>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عدات</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/5-6-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- تمارين الاطالة -->
+        <div dir="rtl">
+          <h4>
+            * الاطالة أو الاسترجات بعد التمرين ترجع العضلات لوضعها الطبيعي بعد
+            التمرين
+          </h4>
+          <h4>
+            * هذا الفيديو ضروري جدا لكي تحافظي علي العضلة من الاصابات و تمزق
+            الاربطة
+          </h4>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/3-8.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+      </div>
+
+      <!-- يوم الجمعة -->
+      <div class="day-section">
+        <div class="taxes1" dir="rtl">
+          <h2>الجمعة: مشي 45 دقيقه</h2>
+          <h2 class="ltreng"><span>Friday: Walking 45 minutes</span></h2>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/4-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div dir="rtl">
+          <h2>(تمارين الجزء السفلي Lower body)</h2>
+          <h4>* قبل التمرين تسخين كامل الجسم بالمشي 5 دقائق</h4>
+          <h4>* ثم بعد ذلك تسخين العضلات قبل التمرين ضروري</h4>
+          <h4>ضروري جدا هذا التمرين لكل رجل 10 عدات</h4>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/1-6.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+      </div>
+
+      <!-- يوم السبت -->
+      <div class="day-section">
+        <div class="taxes1" dir="rtl">
+          <h2>السبت: الأرداف + العضلات الخلفية للفخذ</h2>
+          <h2 class="ltreng"><span>Saturday: Glutes + Hamstrings</span></h2>
+        </div>
+
+        <!-- التمرين الاول -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الاول:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الي دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الاول: Romanian Deadlifts</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-1-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثاني -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الثاني:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الي دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الثاني: Glute Bridges</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-2.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثالث -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الثالث:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الثالث: Machine Hamstring Curl</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-3.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-3-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الرابع -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الرابع:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">12 عده</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الرابع: Cable Standing Straight Leg Glute Kickback</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-4.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-4-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الخامس -->
+        <div class="sport" dir="rtl">
+          <div class="sport1-1">التمرين الخامس:</div>
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">من 10 - 12 عدة</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">من 30 ثانية الى دقيقة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="level1" dir="rtl">
+          <h3>التمرين الخامس: Hamstring Bridge With Elevated Legs Box Bilateral</h3>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-5.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-5-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- تفعيل العضلات العميقة للبطن -->
+        <div class="sport" dir="rtl">
+          <div dir="ltr">
+            <h2>(TAV) تفعيل العضلات العميقة للبطن</h2>
+          </div>
+
+          <div class="level1">
+            <h3>التمرين الاول: Deadbugs</h3>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عدات</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">30 ثانية</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-6.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- التمرين الثاني - تفعيل العضلات العميقة للبطن -->
+        <div class="sport" dir="rtl">
+          <div dir="ltr">
+            <h2>(TAV) تفعيل العضلات العميقة للبطن</h2>
+          </div>
+
+          <div class="level1">
+            <h3>التمرين الثاني: Bird Dog</h3>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead class="sport1">
+                <tr>
+                  <th>الـنـوع</th>
+                  <th>الـعـدد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>عدد العدات</td>
+                  <td class="sport2">10 عدات</td>
+                </tr>
+                <tr>
+                  <td>عدد الجولات</td>
+                  <td class="sport2">3 جولات</td>
+                </tr>
+                <tr>
+                  <td>الراحة بين الجولات</td>
+                  <td class="sport2">30 ثانية</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-6-2.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/7-6-2-1.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
+
+        <!-- تمارين الاطالة -->
+        <div dir="rtl">
+          <h4>
+            * الاطالة أو الاسترجات بعد التمرين ترجع العضلات لوضعها الطبيعي بعد
+            التمرين
+          </h4>
+          <h4>
+            * هذا الفيديو ضروري جدا لكي تحافظي علي العضلة من الاصابات و تمزق
+            الاربطة
+          </h4>
+        </div>
+
+        <div class="video-container">
+          <video controls loop>
+            <source src="/media/video/1-5.mp4" type="video/mp4" />
+            المتصفح لا يدعم تشغيل الفيديو
+          </video>
+        </div>
       </div>
 
       <!-- Final message -->
