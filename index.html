@@ -418,12 +418,29 @@
         padding: 4px 6px;
       }
 
+      /* Make body measurements table scrollable on small screens */
+      @media (max-width: 768px) {
+        .body-measurements-table-container {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        
+        .body-measurements-table {
+          min-width: 600px; /* Ensure minimum width for scrolling */
+          table-layout: auto; /* Allow natural column sizing */
+        }
+      }
+
       /* Very small screen optimization for body measurements */
       @media (max-width: 360px) {
         .body-measurements-table th,
         .body-measurements-table td {
           font-size: 0.7rem;
           padding: 2px 4px;
+        }
+        
+        .body-measurements-table {
+          min-width: 500px; /* Smaller minimum width for very small screens */
         }
       }
     </style>
@@ -452,7 +469,7 @@
         <h2>قـيـاســات الـجـسـم</h2>
       </div>
 
-      <div class="table-container" dir="rtl">
+      <div class="table-container body-measurements-table-container" dir="rtl">
         <table class="body-measurements-table">
           <thead>
             <tr>
